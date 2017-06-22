@@ -10,14 +10,24 @@ module.exports = {
     //     path: path.resolve(__dirname, 'dist')
     // },
     module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    use: 'css-loader'
-                })
-            }
-        ]
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            // loader: "eslint-loader"
+            use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                },
+                "eslint-loader"
+            ]
+        }, {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                use: 'css-loader'
+            })
+        }]
     },
     devServer: {
         contentBase: path.join(__dirname, "public"),

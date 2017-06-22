@@ -1,15 +1,21 @@
 import './utils.css';
 
-
-
 /**
- * simple add function
+ * simple add
  * @param {*} a 
  * @param {*} b 
  */
 
-function add(a, b) {
+export function add(a, b) {
     return a + b;
 }
 
-export default add;
+/**
+ * simple subtract
+ * @param {*} a 
+ * @param {*} b 
+ */
+export function subtract(a, b){
+    return a - b;
+}
+
