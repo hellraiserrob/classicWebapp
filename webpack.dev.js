@@ -30,14 +30,26 @@ module.exports = {
             },
                 "eslint-loader"
             ]
-        }, {
+        },{
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
                 use: 'css-loader'
             })
-        }, {
+        },{
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                use: [{
+                    loader: 'css-loader'
+                }, {
+                    loader: 'sass-loader'
+                }]
+            })
+        },{
             test: /\.pug$/,
             loader: 'pug-loader'
+        },{
+            test: /\.(png|svg|jpg|gif)$/,
+            use: ['file-loader']
         }]
     },
     devServer: {

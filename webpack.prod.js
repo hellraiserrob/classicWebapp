@@ -17,7 +17,7 @@ module.exports = {
     entry: './src/scripts/index.js',
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash].js'
     },
     module: {
         rules: [{
@@ -37,9 +37,21 @@ module.exports = {
             use: ExtractTextPlugin.extract({
                 use: 'css-loader'
             })
+        },{
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                use: [{
+                    loader: 'css-loader'
+                }, {
+                    loader: 'sass-loader'
+                }]
+            })
         }, {
             test: /\.pug$/,
             loader: 'pug-loader'
+        }, {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: ['file-loader']
         }]
     },
     plugins: [
@@ -64,7 +76,9 @@ module.exports = {
             },
             comments: false
         }),
-        new ExtractTextPlugin('styles.css'),
+        new ExtractTextPlugin({
+            filename: '[name].[contenthash].css'
+        }),
         new CopyWebpackPlugin([{
             from: 'public'
         }])

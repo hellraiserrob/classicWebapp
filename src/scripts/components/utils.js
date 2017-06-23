@@ -1,4 +1,4 @@
-import './utils.css';
+import './utils.scss';
 
 /**
  * simple add
