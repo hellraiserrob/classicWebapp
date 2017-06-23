@@ -1,5 +1,5 @@
 {
-  "name": "classicWebapp",
+  "name": "webpackwebapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -32,6 +32,9 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "html-webpack-plugin": "^2.28.0",
     "http-server": "^0.10.0",
+    "pug": "^2.0.0-rc.2",
+    "pug-html-loader": "^1.1.5",
+    "pug-loader": "^2.3.0",
     "style-loader": "^0.18.2",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
