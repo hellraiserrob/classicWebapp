@@ -1,5 +1,3 @@
-import './utils.scss';
-
 /**
  * simple add
  * @param {*} a 
@@ -19,3 +17,11 @@ export function subtract(a, b){
     return a - b;
 }
 
+/**
+ * merge 2 objects
+ * @param {*} a 
+ * @param {*} b 
+ */
+export function merge(a, b){
+    return Object.assign(a, b);
+}

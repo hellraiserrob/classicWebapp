@@ -9,6 +9,13 @@ function pugPage(name) {
     })
 }
 
+// function nunjucksPage(name) {
+//     return new HtmlWebpackPlugin({
+//         filename: name + '.html',
+//         template: './src/templates/pages/' + name + '.nunjucks'
+//     })
+// }
+
 
 module.exports = {
     devtool: 'cheap-module-source-map',
@@ -30,12 +37,12 @@ module.exports = {
             },
                 "eslint-loader"
             ]
-        },{
+        }, {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
                 use: 'css-loader'
             })
-        },{
+        }, {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
                 use: [{
@@ -44,12 +51,16 @@ module.exports = {
                     loader: 'sass-loader'
                 }]
             })
-        },{
+        }, {
             test: /\.pug$/,
             loader: 'pug-loader'
-        },{
+        }, {
             test: /\.(png|svg|jpg|gif)$/,
             use: ['file-loader']
+        }, {
+            test: /\.test$/,
+            use: 'mocha-loader',
+            exclude: /node_modules/,
         }]
     },
     devServer: {
@@ -62,6 +73,8 @@ module.exports = {
 
         pugPage('index'),
         pugPage('test'),
+
+
 
 
         // new HtmlWebpackPlugin({
