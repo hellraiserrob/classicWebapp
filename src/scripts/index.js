@@ -1,7 +1,7 @@
 import './index.scss';
 
 
-
+import $ from 'jquery';
 
 
 
@@ -28,3 +28,25 @@ let b = {
 let c = merge(a, b);
 
 console.log(`user object ${c.forename} ${c.surname}`);
+
+
+
+$('.form-group-text input').on('focus', (e) => {
+    
+    let $input = $(e.target);
+    let $parent = $input.parent();
+
+    $parent.addClass('float');
+
+});
+
+$('.form-group-text input').on('blur', (e) => {
+    
+    let $input = $(e.target);
+    let $parent = $input.parent();
+
+    if($input.val() === '') {
+        $parent.removeClass('float');
+    }
+
+});

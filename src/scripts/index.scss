@@ -1,9 +1,34 @@
-$font-stack: Helvetica, sans-serif;
+
+$font-stack: "Open Sans";
+
+
+$color-primary: #3babff;
+
+* {
+    box-sizing: border-box;
+}
+
+
+html, body {
+    padding: 0;
+    margin:0;
+
+}
+
 
 body {
     font-family: $font-stack;
+    color: #333;
 }
 
+a {
+    color: $color-primary;
+
+    &:hover {
+        color: darken($color-primary, 20%);
+
+    }
+}
 
 h1, h2, h3, h4, h5 {
     margin:0;
@@ -12,11 +37,261 @@ h1, h2, h3, h4, h5 {
 
 
 h1 {
-    margin: 0 0 20px 0;
-    padding: 0 0 20px 0;
-    border-bottom: 1px solid #ddd;
+    font-size: 100px;
 }
 
 p {
     margin: 0 0 20px 0;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+
+nav {
+
+    margin: 0 0 50px 0;
+    // text-align: center;
+
+    ul {
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+        padding: 20px 60px 20px 5px;
+        border-bottom: 5px solid #ccc;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+    }
+
+    li.active {
+        a {
+            border-color: $color-primary;
+        }
+    }
+
+}
+
+
+fieldset {
+
+    border: 1px solid #ccc;
+    padding: 20px;
+
+    padding: 0;
+    border:0;
+}
+
+legend {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+}
+
+
+.form-group {
+    position: relative;
+    margin: 0 0 25px 0;
+
+    &:last-child {
+        margin:0;
+    }
+}
+
+.form-control {
+    
+    border: 0;
+    border-bottom: 1px solid #ccc;
+
+    width: 100%;
+    padding: 25px 0 8px 0;
+    background: none;
+    font-size: 16px;
+    // text-transform: uppercase;
+    font-weight: 600;
+
+
+    &:focus {
+        outline: none;
+        // border-color: #333;
+    }
+
+}
+
+
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #999;
+
+}
+
+.form-group-checkbox, .form-group-radio {
+
+    label {
+        padding-left: 30px;
+
+        i {
+            position: absolute;
+            top:2px;
+            left:0;
+            font-size: 22px;
+            color: #ccc;
+
+            transition: all 0.2s;
+        }
+
+
+        .on {
+            display:none;
+        }
+
+        &:hover {
+            i {
+                color: #999;
+            }
+
+            
+        }
+    }
+
+    input {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        background: none;
+        width: 15px;
+        height: 15px;
+        -webkit-appearance: none;
+        opacity: 0;
+
+        &:checked + label {
+            
+            i {
+                color: $color-primary;
+            }
+
+            .on {
+                display:block;
+            }
+            
+            .off {
+                display:none;
+            }
+        }
+    }
+
+    .option {
+        position: relative;
+        margin: 0 0 5px 0;
+    }
+
+}
+
+.form-group-radio {
+
+
+
+}
+
+
+
+.form-group-text {
+
+    label {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+
+        // text-transform: uppercase;
+
+        transition: all 0.2s;
+        z-index: -1;
+
+        transform: translateY(-50%);
+
+    }
+
+    &.float {
+        label {
+            top: 0;
+            color: $color-primary;
+            font-size:  12px;
+            transform: translateY(0);
+        }
+    }
+
+}
+
+.btn {
+    background: $color-primary;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    border:0;
+    border-radius: 3px;
+    padding: 12px 20px;
+    cursor: pointer;
+
+    transition: all 0.2s;
+    position: relative;
+
+    transform: translateZ(0);
+    overflow: hidden;
+
+    &:before {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: darken($color-primary, 20%);
+        content: "";
+        z-index: -1;
+        transition: all 0.2s;
+
+        transform: scaleX(0)
+    }
+
+
+
+    &:hover {
+        
+        background: darken($color-primary, 10%);
+
+        &:before {
+            transform: scaleX(1)
+        }
+
+    }
+
+}
+
+
+
+.material-icons {
+    vertical-align: middle;
+}
+
+
+.alert {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background: #eee;
 }

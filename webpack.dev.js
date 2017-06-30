@@ -30,10 +30,7 @@ module.exports = {
             exclude: /node_modules/,
             // loader: "eslint-loader"
             use: [{
-                loader: 'babel-loader',
-                options: {
-                    presets: ['env']
-                }
+                loader: 'babel-loader'
             },
                 "eslint-loader"
             ]
@@ -72,7 +69,7 @@ module.exports = {
     plugins: [
 
         pugPage('index'),
-        pugPage('test'),
+        pugPage('form'),
 
 
 

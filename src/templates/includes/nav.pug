@@ -1,5 +1,7 @@
-ul
-    li
-        a(href='index.html') index
-    li
-        a(href='test.html') test
+block vars
+nav
+    ul
+        li(class=active=="index" ? "active" : "")
+            a(href='index.html') Home
+        li(class=active=="form" ? "active" : "")
+            a(href='form.html') Form

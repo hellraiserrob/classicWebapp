@@ -1,0 +1,46 @@
+//- page-a.pug
+extends ../layout.pug
+
+block vars
+	- var title='form'
+	- var active='form'
+
+block content
+	h1 Form
+		
+	form(method='POST' action='/register')
+
+		fieldset
+
+			legend Basics
+		
+			div.form-group.form-group-text
+				input#name.form-control(type='text', placeholder='' name='name')
+				label(for='name') Full name
+			
+			div.form-group.form-group-text
+				input#name.form-control(type='text', placeholder='' name='email')
+				label(for='email') Email address
+			
+			div.form-group.form-group-radio
+				div.option
+					input#gender-1(type='radio', name='gender')
+					label(for='gender-1') Male
+						i.material-icons.off &#xE836;
+						i.material-icons.on &#xE837;
+				div.option
+					input#gender-2(type='radio', name='gender')
+					label(for='gender-2') Female
+						i.material-icons.off &#xE836;
+						i.material-icons.on &#xE837;
+
+			div.form-group.form-group-checkbox
+				input#terms(type='checkbox')
+				label(for='terms') Yes, I agree to the #[a(href='#') terms ]
+					i.material-icons.off &#xE835;
+					i.material-icons.on &#xE834;
+			
+			div.form-group
+				button.btn(type='submit', value='Submit') Submit
+					
+			

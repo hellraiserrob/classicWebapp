@@ -3,9 +3,14 @@ html
 	block vars
 	head
 		title My Site - #{title}
+
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Material+Icons')
+
 	body
 
-		include includes/nav.pug
+		noscript
+			div.alert no js
 
 		div.content
+			include includes/nav.pug
 			block content
