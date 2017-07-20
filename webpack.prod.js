@@ -60,7 +60,7 @@ module.exports = {
             dry: false
         }),
         pugPage('index'),
-        pugPage('test'),
+        pugPage('form'),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
